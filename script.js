@@ -30,9 +30,20 @@ const togglePlay = () => {
 video.addEventListener('ended', showPlayIcon);
 
 // Progress Bar ---------------------------------- //
+
+// Calculate display time format
+const displayTime = (time) => {
+  const minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time % 60);
+  seconds = seconds < 10 ? `0${seconds}` : seconds;
+  return `${minutes}:${seconds}`;
+};
+
 // Update progress bar as video plays
 const updateProgress = () => {
   progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+  currentTime.textContent = `${displayTime(video.currentTime)} /`;
+  duration.textContent = `${displayTime(video.duration)}`;
 };
 
 // Volume Controls --------------------------- //
