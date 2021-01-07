@@ -97,6 +97,7 @@ video {
   top: 15px;
   cursor: pointer;
   transition: height 0.1s ease-out;
+  z-index: 10;
 }
 
 .progress-range:hover {
